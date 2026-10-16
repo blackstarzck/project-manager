@@ -1,0 +1,32 @@
+import { expect, test } from '@playwright/test';
+import { API } from '../fixtures.js';
+import { seedNestedProject } from '../phase2-fixtures.js';
+
+test('N01/N03: nested HTML renders structured layout and supports modal, navigate and back entirely offline', async ({ page, request }) => {
+  const project = await seedNestedProject(request);
+  const response = await request.get(`${API}/projects/${project.id}/export?format=html`);
+  expect(response.ok(), await response.text()).toBeTruthy();
+  const requests: string[] = [];
+  page.on('request', request => { if (/^https?:/.test(request.url())) requests.push(request.url()); });
+  await page.setContent(await response.text());
+  await expect(page.getByRole('heading', { name: '우리 동네 도서관', exact: true })).toBeVisible();
+  await expect(page.getByRole('heading', { name: '깊은 계층의 추천 도서', exact: true })).toBeVisible();
+  await expect(page.getByText('회원 메뉴', { exact: true })).toBeVisible();
+  await expect(page.getByRole('table')).toHaveCount(1);
+  await expect(page.getByRole('columnheader', { name: '예약 상태', exact: true })).toBeVisible();
+  await expect(page.getByRole('cell', { name: '대기 2명', exact: true })).toBeVisible();
+  await expect(page.getByText('예약은 1인당 세 권까지 가능합니다.', { exact: true })).toBeHidden();
+  await page.getByText('예약 안내 열기', { exact: true }).click();
+  await expect(page.getByText('예약은 1인당 세 권까지 가능합니다.', { exact: true })).toBeVisible();
+  await page.getByText('안내 닫기', { exact: true }).click();
+  await expect(page.getByText('예약은 1인당 세 권까지 가능합니다.', { exact: true })).toBeHidden();
+  await page.getByText('중첩 도서 상세', { exact: true }).click();
+  await expect(page.getByRole('heading', { name: '도서 상세 페이지', exact: true })).toBeVisible();
+  await expect(page.getByText('도서 정보 안내', { exact: true })).toBeVisible();
+  await expect(page.getByText('사서 도움말', { exact: true })).toBeVisible();
+  await expect(page.getByRole('heading', { name: '우리 동네 도서관', exact: true })).toBeHidden();
+  await page.getByText('검색으로 돌아가기', { exact: true }).click();
+  await expect(page.getByRole('heading', { name: '우리 동네 도서관', exact: true })).toBeVisible();
+  expect(requests).toEqual([]);
+  await page.screenshot({ path: 'tests/artifacts/phase2-nested-html.png', fullPage: true });
+});

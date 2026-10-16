@@ -1,0 +1,14 @@
+.wireframe-page-tasks{border:1px solid #e6dff0;border-radius:7px;margin:10px 0;background:#fdfcfe;font-size:12px}
+.page-task-counts{display:flex;flex-wrap:wrap;gap:5px 11px;padding:10px;border-bottom:1px solid #eee8f3;color:var(--text-secondary)}
+.page-task-counts strong{font-weight:600;color:#775f8b}
+.wireframe-page-tasks>ul{list-style:none;margin:0;padding:0;max-height:280px;overflow:auto}
+.wireframe-page-tasks>ul>li{padding:10px;border-bottom:1px solid #f0ebf5}
+.wireframe-page-tasks>ul>li:last-child{border-bottom:0}
+.page-task-heading{display:flex;align-items:center;gap:6px;color:var(--text-secondary)}.page-task-heading strong{font-weight:500;overflow-wrap:anywhere;min-width:0;flex:1}.page-task-heading>span{font-size:12px;white-space:nowrap}
+.page-task-heading.status-succeeded{color:var(--text-secondary)}.page-task-heading.status-failed{color:var(--text-secondary)}.page-task-heading.status-running{color:var(--text-secondary)}
+.page-task-attempt{margin:5px 0 0 18px;font-size:12px;color:var(--text-secondary)}.run-card .page-task-error{color:var(--text-secondary);margin:6px 0 0 18px;line-height:1.6}
+.page-task-result{margin:7px 0 0 18px;color:var(--text-secondary)}.page-task-result summary{cursor:pointer;font-size:12px}.page-task-result ul{padding:0;list-style:none;margin:8px 0}.page-task-result li{display:flex;gap:8px;justify-content:space-between;margin:4px 0}.page-task-result strong{font-weight:400}.page-task-result li>span{color:var(--text-secondary)}
+.page-task-result pre{max-height:180px;overflow:auto;white-space:pre-wrap;overflow-wrap:anywhere;font-size:12px;line-height:1.7;padding:7px;background:#f5f1f8;border-radius:4px}
+.run-card .page-task-note{margin:0;padding:8px 10px;border-top:1px solid #eee8f3;font-size:12px;line-height:1.6}
+.page-task-actions{display:grid;gap:7px;margin-top:10px}.page-task-actions button{justify-content:center;text-wrap:balance;font-size:12px}
+.partial-proposal-note{border:1px solid #eadfce;background:#fffcf6;border-radius:7px;padding:12px;margin:12px 0;font-size:12px;color:var(--text-secondary);line-height:1.8}.partial-proposal-note strong{font-weight:600}.partial-proposal-note p{margin:5px 0 0}

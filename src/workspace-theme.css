@@ -1,0 +1,148 @@
+/* Shared app chrome. User-authored wireframe element styles stay in wireframe.css. */
+body { line-height: 1.5; }
+button, input, textarea, select { font-size: 14px; }
+button:focus-visible, a:focus-visible, [tabindex]:focus-visible { outline: 2px solid var(--focus); outline-offset: 3px; }
+input:focus, textarea:focus, select:focus { border-color: var(--accent); box-shadow: 0 0 0 3px #6b50e51a; }
+input::placeholder, textarea::placeholder { color: var(--muted); opacity: 1; }
+input[aria-invalid=true] { border-color: var(--danger); }
+.primary, .secondary, .danger, .ghost { min-height: var(--control-height); padding: 7px 12px; border-radius: var(--radius); font-size: 14px; line-height: 20px; }
+.small { min-height: var(--control-height); padding: 6px 12px; font-size: 14px; }
+.icon-button { width: var(--icon-size); height: var(--icon-size); color: var(--text-secondary); }
+.ghost { color: var(--text-secondary); }
+.danger, .field-error, .run-error { color: var(--danger); }
+.field-error { font-size: 13px; font-weight: 400; }
+.badge, .pill { font-size: 12px; line-height: 1.5; color: #59478e; }
+.badge-green { color: var(--success); }
+.badge-orange { color: var(--warning); }
+.eyebrow { font-size: 12px; letter-spacing: .05em; color: var(--muted); }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+.skip-link { position: fixed; z-index: 300; left: 12px; top: 12px; transform: translateY(-180%); padding: 12px 16px; border-radius: var(--radius); color: white; background: var(--accent); text-decoration: none; }
+.skip-link:focus { transform: none; }
+.modal-backdrop { padding: 24px; }
+.modal { display: flex; flex-direction: column; padding: 0; max-height: calc(100dvh - 48px); overflow: hidden; border-radius: 12px; width: 520px; }
+.modal-wide { width: 960px; }
+.modal-header { flex: none; margin: 0; padding: 20px 24px 16px; border-bottom: 1px solid var(--line); }
+.modal-header h2 { font-size: 18px; line-height: 1.4; }
+.modal-body { min-height: 0; overflow: auto; overscroll-behavior: contain; padding: 24px; }
+.modal-actions { display: flex; justify-content: flex-end; gap: 8px; flex: none; padding: 16px 24px; border-top: 1px solid var(--line); background: var(--surface); }
+.modal-footer { position: sticky; bottom: -24px; margin: 24px -24px -24px; padding: 16px 24px; border-top: 1px solid var(--line); background: var(--surface); flex-wrap: wrap; }
+.form-field { font-size: 14px; gap: 8px; margin-bottom: 20px; }
+.field-help { font-size: 13px; color: var(--text-secondary); }
+.help-copy { color: var(--text-secondary); font-size: 14px; line-height: 1.8; }
+.help-copy li { margin-bottom: 8px; }
+.error-banner, .toast { font-size: 14px; }
+.error-banner { color: var(--danger); }
+.error-banner > span { overflow-wrap: anywhere; }
+.toast { max-width: calc(100vw - 32px); }
+.action-menu { min-width: 192px; max-width: calc(100vw - 24px); padding: 4px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); box-shadow: var(--shadow-panel); z-index: 160; }
+.action-menu-item { display: flex; gap: 8px; align-items: center; min-height: 36px; padding: 8px 12px; border-radius: 4px; cursor: pointer; font-size: 14px; outline: none; }
+.action-menu-item[data-highlighted] { background: var(--accent-soft); color: var(--accent-hover); }
+.action-menu-item[data-disabled] { opacity: .5; pointer-events: none; }
+.action-menu-item.is-danger { color: var(--danger); }
+.ui-tooltip { z-index: 180; max-width: 280px; padding: 6px 10px; border-radius: 6px; background: var(--text); color: white; font-size: 12px; box-shadow: 0 4px 12px #25263120; }
+.ui-tooltip svg { fill: var(--text); }
+.empty-state h3 { font-size: 18px; }
+.empty-state p { font-size: 14px; color: var(--text-secondary); }
+.dashboard-main { min-width: 0; }
+.dashboard-heading h1 { font-size: 28px; }
+.dashboard-heading p, .nav-item, .workspace-selector strong { font-size: 14px; color: var(--text-secondary); }
+.dashboard-topbar, .dashboard-toolbar strong span, .workspace-selector small, .local-status, .nav-count { font-size: 12px; color: var(--muted); }
+.dashboard-toolbar { gap: 16px; }
+.dashboard-toolbar strong { font-size: 14px; }
+.search-field input { font-size: 14px; min-height: 36px; }
+.project-grid { gap: 20px; }
+.project-card { padding: 24px; min-height: 224px; }
+.project-card h2 { font-size: 18px; margin-bottom: 8px; padding-right: 12px; overflow-wrap: anywhere; }
+.document-panel { display: flex; flex: 1; flex-direction: column; min-width: 0; min-height: 0; }
+.project-card p { font-size: 14px; line-height: 1.65; height: 46px; color: var(--text-secondary); }
+.project-card-footer { font-size: 12px; color: var(--muted); gap: 8px; flex-wrap: wrap; }
+.project-card-open { position: absolute; inset: 0; z-index: 1; width: 100%; height: 100%; border-radius: inherit; }
+.project-card-menu { z-index: 2; }
+.project-card:has(.project-card-open:disabled) { cursor: default; }
+.welcome-panel { padding: 24px; }
+.welcome-panel h2 { font-size: 22px; }
+.welcome-panel p { font-size: 14px; color: var(--text-secondary); }
+.onboarding-step, .onboarding-step b { font-size: 12px; color: var(--text-secondary); }
+.app-shell { height: 100dvh; }
+.app-rail { width: 64px; padding: 16px 0; }
+.rail-button { color: var(--text-secondary); width: 40px; height: 40px; border-radius: var(--radius); }
+.rail-button.active { color: var(--accent-hover); background: var(--accent-soft); }
+.workspace-header { min-height: 64px; height: auto; padding: 12px 24px; gap: 16px; }
+.breadcrumbs { font-size: 13px; gap: 8px; }
+.breadcrumbs button { color: var(--text-secondary); min-height: 32px; }
+.breadcrumbs strong { color: var(--text); font-size: 14px; }
+.save-state { font-size: 12px; color: var(--text-secondary); }
+.header-actions { gap: 8px; }
+.document-navigation { display: flex; align-items: stretch; flex: none; min-width: 0; min-height: 52px; border-bottom: 1px solid var(--line); background: var(--surface); }
+.document-navigation .document-tabs { flex: 1; min-width: 0; height: auto; min-height: 52px; overflow-x: auto; border: 0; padding: 0 24px; gap: 24px; }
+.document-tab { font-size: 14px; white-space: nowrap; color: var(--text-secondary); }
+.document-tab.active, .document-tab[data-state=active] { color: var(--accent-hover); }
+.document-tab.active:after { background: var(--accent); bottom: 0; height: 3px; }
+.document-tab:focus-visible { outline-offset: -4px; }
+.content-area { background: var(--surface-muted); }
+.page-toolbar { min-height: 60px; height: auto; padding: 12px 24px; gap: 12px; flex-wrap: wrap; }
+.page-title { color: var(--text); font-size: 14px; }
+.page-tools { gap: 8px; flex-wrap: wrap; }
+.rich-toolbar { opacity: 1; min-height: 40px; gap: 4px; flex-wrap: wrap; }
+.rich-toolbar button { width: 32px; height: 32px; color: var(--text-secondary); }
+.rich-toolbar button[aria-pressed=true] { color: var(--accent-hover); background: var(--accent-soft); }
+.rich-text { font-size: 14px; color: var(--text); line-height: 1.8; }
+.revision-row-info { min-width: 0; }
+.revision-row-info strong { font-size: 14px; color: var(--text); overflow-wrap: anywhere; }
+.revision-row-info small, .export-option small { font-size: 12px; color: var(--text-secondary); }
+.export-option { padding: 16px; min-width: 0; }
+.export-option strong { font-size: 14px; color: var(--text); }
+.export-option small { overflow-wrap: anywhere; }
+.reference-checks { font-size: 14px; color: var(--text-secondary); }
+.save-conflict-recovery { font-size: 14px; color: var(--warning); flex-wrap: wrap; }
+.flow-context-bar, .wf-version-row { gap: 8px 12px; padding: 8px 20px; min-height: 52px; color: var(--text-secondary); flex-wrap: wrap; }
+.flow-context-bar > select, .wf-version-row > select { font-size: 14px; min-height: 36px; color: var(--text); max-width: min(400px, 100%); }
+.flow-context-summary, .wf-version-date { font-size: 12px; color: var(--muted); }
+.wf-version-actions { flex-wrap: wrap; }
+.flow-generation-options strong, .flow-generation-options > legend, .wireframe-generation-targets label { font-size: 14px; color: var(--text); }
+.flow-generation-options small, .flow-generation-target, .flow-context-label { font-size: 13px; color: var(--text-secondary); }
+.wf-version-error, .version-trash-error, .flow-version-error, .page-task-heading.status-failed, .run-card .page-task-error { color: var(--danger); font-size: 13px; }
+.page-task-heading.status-succeeded { color: var(--success); }
+.page-task-heading.status-running { color: var(--accent-hover); }
+.page-task-actions button, .version-trash-row strong { font-size: 14px; }
+.partial-proposal-note { color: var(--warning); }
+.react-flow__attribution a { color: var(--text-secondary); font-size: 12px; }
+.ux-editor .flow-version-create.primary { color: white; }
+.ux-editor .wf-add-page { color: var(--text-secondary); }
+.ux-editor .wf-browser-chrome, .ux-editor .wf-browser-chrome span { color: var(--text-secondary); font-size: 12px; }
+.ux-editor .wf-delete { color: var(--danger); }
+@media (max-width: 800px) {
+  .workspace-header { padding: 8px 12px; flex-wrap: wrap; }
+  .header-actions { margin-left: auto; flex-wrap: wrap; }
+  .header-actions .secondary { font-size: 14px; padding: 6px 10px; }
+  .header-actions .save-state { display: inline-flex; }
+  .document-navigation .document-tabs { padding: 0 12px; gap: 16px; }
+  .document-tab { font-size: 14px; }
+  .modal-backdrop { padding: 12px; }
+  .modal { max-height: calc(100dvh - 24px); }
+  .modal-header { padding: 16px; }
+  .modal-body { padding: 16px; }
+  .modal-actions { padding: 12px 16px; }
+  .modal-footer { margin: 20px -16px -16px; padding: 12px 16px; bottom: -16px; }
+  .dashboard-nav { width: 160px; padding: 20px 12px; }
+  .dashboard-main { margin-left: 160px; padding: 0 24px 32px; }
+  .dashboard-heading, .dashboard-toolbar { flex-wrap: wrap; }
+  .dashboard-heading h1 { font-size: 28px; }
+  .welcome-art, .workspace-selector { display: none !important; }
+  .onboarding-steps { flex-wrap: wrap; }
+}
+@media (max-width: 560px) {
+  .app-rail { width: 48px; }
+  .workspace-header .breadcrumbs { flex-basis: 100%; }
+  .dashboard { flex-direction: column; }
+  .dashboard-nav { position: static; width: auto; flex-direction: row; flex-wrap: wrap; gap: 4px; padding: 12px; border-right: 0; border-bottom: 1px solid var(--line); }
+  .dashboard-nav .brand { margin: 0 16px 0 0; }
+  .dashboard-nav .eyebrow, .local-status { display: none; }
+  .dashboard-nav .nav-item { width: auto; margin: 0; }
+  .dashboard-nav .nav-bottom { display: flex; flex-wrap: wrap; }
+  .dashboard-main { margin: 0; padding: 0 16px 32px; }
+  .project-grid { grid-template-columns: minmax(0, 1fr); }
+  .welcome-panel { padding: 20px; }
+  .export-grid { grid-template-columns: minmax(0, 1fr); }
+  .form-row { flex-direction: column; }
+}

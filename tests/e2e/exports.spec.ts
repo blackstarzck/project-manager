@@ -1,0 +1,51 @@
+import { expect, test } from '@playwright/test';
+import ExcelJS from 'exceljs';
+import { API, CANCEL_POLICY, seedProject } from '../fixtures.js';
+
+test('Q15: exported Markdown, Mermaid, and XLSX contain Korean content and actual hierarchy', async ({ request }) => {
+  const project = await seedProject(request);
+  const markdown = await request.get(`${API}/projects/${project.id}/export?format=markdown`);
+  expect(markdown.ok()).toBeTruthy();
+  const md = await markdown.text();
+  expect(md).toContain(project.name);
+  expect(md).toContain('서비스 소개');
+  expect(md).toContain('### 도서 예약');
+  expect(md).toContain('#### 도서 검색');
+  expect(md).toContain('##### 제목 검색');
+  expect(md).toContain(CANCEL_POLICY);
+  const mermaid = await request.get(`${API}/projects/${project.id}/export?format=mermaid`);
+  const graph = await mermaid.text();
+  expect(graph).toContain('flowchart TD');
+  expect(graph).toContain('도서 검색');
+  expect(graph).toContain('도서 상세');
+  expect(graph).toContain('도서 선택');
+  expect(graph.match(/-->/g)).toHaveLength(2);
+  const xlsx = await request.get(`${API}/projects/${project.id}/export?format=xlsx`);
+  expect(xlsx.ok()).toBeTruthy();
+  expect(xlsx.headers()['content-type']).toContain('spreadsheetml');
+  const workbook = new ExcelJS.Workbook();
+  await workbook.xlsx.load(await xlsx.body() as never);
+  const features = workbook.getWorksheet('기능명세')!;
+  expect(features.rowCount).toBe(4);
+  expect(features.getCell('D2').value).toBe('도서 예약');
+  expect(features.getCell('B3').value).toBe(features.getCell('A2').value);
+  expect(features.getCell('B4').value).toBe(features.getCell('A3').value);
+  expect(workbook.getWorksheet('PRD')!.getCell('B2').value).toBe('서비스 소개');
+});
+
+test('Q15: exported HTML works offline and screen links navigate', async ({ page, request }) => {
+  const project = await seedProject(request);
+  const response = await request.get(`${API}/projects/${project.id}/export?format=html`);
+  expect(response.ok()).toBeTruthy();
+  const html = await response.text();
+  const externalRequests: string[] = [];
+  page.on('request', request => { if (/^https?:/.test(request.url())) externalRequests.push(request.url()); });
+  await page.setContent(html);
+  await expect(page.getByRole('heading', { name: '도서 검색', exact: true })).toBeVisible();
+  await expect(page.getByRole('heading', { name: '도서 상세', exact: true })).toBeHidden();
+  await page.getByRole('link', { name: '도서 상세 보기', exact: true }).click();
+  await expect(page.getByRole('heading', { name: '도서 상세', exact: true })).toBeVisible();
+  await expect(page.getByRole('heading', { name: '도서 검색', exact: true })).toBeHidden();
+  expect(externalRequests).toEqual([]);
+  await page.screenshot({ path: 'tests/artifacts/exported-wireframe.png', fullPage: true });
+});

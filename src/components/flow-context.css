@@ -1,0 +1,19 @@
+.wireframe-context-layout{display:flex;flex:1;flex-direction:column;min-height:0;min-width:0;overflow:hidden}
+.wireframe-context-layout>.wf-editor{flex:1;height:auto;min-height:0}
+.flow-context-bar{display:flex;align-items:center;flex-shrink:0;gap:12px;min-height:43px;padding:7px 20px;border-bottom:1px solid #e6e3eb;background:#faf9fc;font-size:12px;color:var(--text-secondary)}
+.flow-context-bar>label{display:flex;align-items:center;gap:6px;white-space:nowrap}
+.flow-context-bar>select{padding:6px 9px;max-width:360px;min-width:120px;font-size:12px;background:white;border-radius:5px;color:#695d76}
+.flow-context-summary{display:flex;gap:5px;align-items:center;margin-left:auto;white-space:nowrap;font-size:12px;color:var(--text-secondary)}
+.flow-generation-options{border:0;padding:0;margin:20px 0;display:flex;flex-direction:column;gap:8px}
+.flow-generation-options>legend{font-size:12px;color:var(--text-secondary);margin-bottom:9px}
+.flow-generation-options>label{display:flex;align-items:center;gap:11px;border:1px solid #e7e1ed;padding:13px;border-radius:7px;cursor:pointer}
+.flow-generation-options>label.selected{border-color:#bea8d8;background:#f8f3fd}
+.flow-generation-options input{accent-color:#9670bc}
+.flow-generation-options span{flex:1;display:flex;flex-direction:column;gap:5px}
+.flow-generation-options strong{font-size:12px;font-weight:500;color:#756283}
+.flow-generation-options small{font-size:12px;color:var(--text-secondary);line-height:1.6}
+.flow-generation-options svg{color:var(--text-secondary)}
+.composer-flow-mode{display:flex;align-items:center;gap:8px;padding:4px 0 6px;font-size:12px;color:var(--text-secondary)}
+.composer-flow-mode select{flex:1;min-width:0;max-width:100%;padding:5px 6px;border-color:#eae2f0;font-size:12px;color:var(--text-secondary);border-radius:4px}
+.flow-generation-target{font-size:12px;color:var(--text-secondary);line-height:1.8}
+@media(max-width:700px){.flow-context-bar{gap:7px;padding:7px 10px;flex-wrap:wrap}.flow-context-bar>select{flex:1;max-width:none}.flow-context-summary{width:100%;margin-left:0}.composer-flow-mode{flex-wrap:wrap}}

@@ -1,0 +1,34 @@
+.flow-version-layout { display: flex; flex: 1; min-height: 0; min-width: 0; }
+.flow-editor-main { display: flex; flex-direction: column; flex: 1; min-width: 0; min-height: 0; }
+.flow-version-panel { width: 235px; flex: none; display: flex; flex-direction: column; min-height: 0; background: white; border-right: 1px solid #e6e3eb; padding: 19px 12px 0; }
+.flow-version-panel-title { display: flex; align-items: center; justify-content: space-between; padding: 0 7px; font-size: 12px; color: #6f6679; margin-bottom: 17px; }
+.flow-version-panel-title strong { font-weight: 600; }
+.flow-version-panel-title > span { color: #b3a9be; font-size: 10px; }
+.flow-version-create { width: 100%; margin-bottom: 22px; min-height: 32px; font-size: 10px; }
+.flow-group-list { overflow-y: auto; flex: 1; min-height: 0; padding-bottom: 15px; }
+.flow-group { margin-bottom: 19px; }
+.flow-group-header { display: flex; align-items: center; gap: 2px; margin-bottom: 6px; }
+.flow-group-toggle { flex: 1; min-width: 0; justify-content: flex-start; padding: 5px 0; color: #a59aaf; gap: 5px; }
+.flow-group-toggle strong { color: #756a82; font-weight: 600; font-size: 11px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.flow-version-menu-container { position: relative; flex: none; }
+.flow-version-menu-container .icon-button { width: 22px; height: 25px; }
+.flow-version-menu-container .menu { top: 24px; min-width: 155px; }
+.flow-version-row { display: flex; align-items: center; border: 1px solid transparent; border-radius: 6px; margin: 3px 0 3px 12px; padding: 0 4px; }
+.flow-version-row:hover { background: #f8f5fc; }
+.flow-version-row.active { background: #f2ecfa; border-color: #e7dcf2; }
+.flow-version-select { flex: 1; flex-direction: column; align-items: stretch; text-align: left; padding: 10px 5px; min-width: 0; gap: 6px; }
+.flow-version-name { display: flex; align-items: center; gap: 6px; min-width: 0; color: #ab91c3; }
+.flow-version-name strong { font-size: 10px; font-weight: 500; color: #8e789f; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.flow-version-badge { color: #b9a1cb; font-size: 8px; flex: none; }
+.flow-version-meta { display: flex; align-items: center; gap: 5px; color: #b6a6c2; font-size: 8px; padding-left: 1px; white-space: nowrap; }
+.flow-version-footer { display: flex; align-items: center; gap: 14px; padding: 13px 6px; border-top: 1px solid #eee8f4; color: #b6a9c2; font-size: 9px; flex: none; }
+.flow-version-footer span { display: flex; align-items: center; gap: 5px; }
+.flow-versions-empty { color: #bdafc9; text-align: center; padding: 35px 5px; }
+.flow-versions-empty p { font-size: 10px; line-height: 1.9; margin: 15px 0 9px; }
+.flow-versions-empty span { font-size: 9px; color: #c7bbd0; }
+.flow-version-error { font-size: 10px; color: #b56c82; line-height: 1.8; padding: 7px; }
+.flow-active-version { font-size: 9px; font-weight: 400; color: #ac9db9; max-width: 130px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.flow-context-switch { margin-top: 9px; }
+.flow-context-label { color: #ad9bbd; font-size: 9px; margin-top: 7px; }
+@media(max-width:1250px) { .flow-version-panel { width: 200px; padding-left: 9px; padding-right: 9px; } .flow-active-version { max-width: 90px; } }
+@media(max-width:850px) { .flow-version-panel { width: 170px; } .flow-editor-main .page-toolbar { height: auto; min-height: 57px; flex-wrap: wrap; padding-top: 8px; padding-bottom: 8px; } }

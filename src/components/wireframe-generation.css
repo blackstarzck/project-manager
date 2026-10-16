@@ -1,0 +1,23 @@
+.wf-generation-context{display:flex;align-items:center;gap:8px;color:var(--text-secondary);font-size:12px;line-height:1.7;margin:3px 0 20px}
+.wf-generation-context>svg{flex:none}
+.wf-generation-modes{border:0;padding:0;margin:0 0 19px;display:flex;gap:8px}
+.wf-generation-modes legend{font-size:12px;color:var(--text-secondary);margin-bottom:10px}
+.wf-generation-modes label{display:flex;align-items:center;gap:7px;flex:1;font-size:12px;padding:11px 9px;border:1px solid #e9e1ee;border-radius:6px;cursor:pointer;color:var(--text-secondary)}
+.wf-generation-modes label:has(input:checked){border-color:#bca6d3;background:#f8f3fc}
+.wf-generation-modes label>span{margin-left:auto;font-size:12px;color:var(--text-secondary)}
+.wf-generation-modes input,.wf-generation-selection input,.wf-generation-list input{accent-color:#9370b9;flex:none}
+.wf-generation-selection{display:flex;align-items:center;justify-content:space-between;gap:8px;font-size:12px;color:var(--text-secondary);margin-bottom:9px}
+.wf-generation-selection>label{display:flex;align-items:center;gap:7px}
+.wf-generation-list{max-height:235px;overflow:auto;border:1px solid #e9e3ef;border-radius:6px;margin-bottom:20px}
+.wf-generation-group>label{display:flex;align-items:center;gap:10px;padding:12px;font-size:12px;color:var(--text-secondary);cursor:pointer}
+.wf-generation-group>label+label{border-top:1px solid #f0eaf5}
+.wf-generation-group>label:has(input:checked){background:#fcf9ff}
+.wf-generation-group>label>span{flex:1;min-width:0;overflow-wrap:anywhere}
+.wf-generation-list small{color:var(--text-secondary);font-size:12px;flex:none}
+.wf-generation-list>p{font-size:12px;color:var(--text-secondary);line-height:1.9;padding:12px 16px}
+.wf-generation-destination{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--text-secondary);margin:16px 0 6px}.wf-generation-destination input{accent-color:#9674ba}
+@media(max-width:550px){.wf-generation-modes{flex-direction:column}}
+.wf-generation-search{display:flex;align-items:center;gap:8px;border:1px solid #e9e3ef;border-radius:6px;padding:0 10px;margin:0 0 10px;color:var(--text-secondary)}
+.wf-generation-search input{flex:1;min-width:0;border:0;background:transparent;box-shadow:none;outline:0;padding:10px 0;font-size:12px}
+.wf-generation-group h4{display:flex;align-items:center;gap:8px;font-size:12px;font-weight:500;color:var(--text-secondary);padding:10px 12px;margin:0;background:#f7f4fa;overflow-wrap:anywhere}
+.wf-generation-group h4>span{font-size:12px;font-weight:400;color:var(--text-secondary);margin-left:auto}

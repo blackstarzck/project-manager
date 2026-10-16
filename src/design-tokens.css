@@ -1,0 +1,33 @@
+:root {
+  --font-body: 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --text: #252631;
+  --ink: var(--text);
+  --text-secondary: #555d6d;
+  --muted: #626b7c;
+  --surface: #fff;
+  --surface-muted: #f5f6f8;
+  --accent: #6b50e5;
+  --accent-hover: #5940cc;
+  --accent-soft: #f0edff;
+  --line: #dfe2e9;
+  --border: var(--line);
+  --danger: #b4233a;
+  --success: #226b49;
+  --warning: #79561c;
+  --green: var(--success);
+  --focus: #6144d0;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --radius: 8px;
+  --control-height: 36px;
+  --icon-size: 32px;
+  --shadow-panel: 0 12px 36px #25263124;
+  color: var(--text);
+  background: var(--surface-muted);
+  font-family: var(--font-body);
+  font-size: 14px;
+}

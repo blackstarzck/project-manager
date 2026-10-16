@@ -1,0 +1,14 @@
+node_modules/
+dist/
+storybook-static/
+.env*
+!.env.example
+data/
+*.sqlite*
+test-results/
+playwright-report/
+tests/artifacts*/
+tests/report*/
+tests/**/report*/
+.qa-data/
+*.log
